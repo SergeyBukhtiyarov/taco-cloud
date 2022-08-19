@@ -1,15 +1,12 @@
-package sia.tacocloud;
-
+package sia.tacocloud.web;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
+import sia.tacocloud.Ingredient;
+import sia.tacocloud.data.IngredientRepository;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import sia.tacocloud.Ingredient.Type;
 @Component
 public class IngredientsByIdConverter implements Converter<String, Ingredient> {
     private IngredientRepository ingredientRepo;

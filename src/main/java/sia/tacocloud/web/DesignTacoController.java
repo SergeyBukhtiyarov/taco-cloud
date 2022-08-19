@@ -1,4 +1,4 @@
-package sia.tacocloud;
+package sia.tacocloud.web;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -9,10 +9,12 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import sia.tacocloud.Ingredient;
 import sia.tacocloud.Ingredient.Type;
-import lombok.Data;
+import sia.tacocloud.Taco;
+import sia.tacocloud.TacoOrder;
+import sia.tacocloud.data.IngredientRepository;
+
 import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,7 +24,7 @@ import java.util.stream.Collectors;
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
     @Autowired
-    private  IngredientRepository ingredientRepo;
+    private IngredientRepository ingredientRepo;
 @Autowired
     public  DesignTacoController(IngredientRepository ingredientRepo) {
     }
