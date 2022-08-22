@@ -15,10 +15,10 @@
  #### is a place where You can order tacos
  
  
+ 
  #### 3. /registration
-                  
-                              
-                                                                                
+ where You can sign up new user               
+                                                                                                          
                               
 Tools/Libraries
 -	IDEA
