@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import sia.tacocloud.entity.TacoOrder;
-import sia.tacocloud.data.OrderRepository;
+import sia.tacocloud.repository.OrderRepository;
 
 import javax.validation.Valid;
 

@@ -1,11 +1,7 @@
 package sia.tacocloud.security;
 
 import lombok.Data;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.SecurityFilterChain;
-import sia.tacocloud.entity.User;
+import sia.tacocloud.entity.User.User;
 
 @Data
 public class RegistrationForm {
@@ -19,24 +15,10 @@ public class RegistrationForm {
     private String zip;
     private String phone;
 
-    public User toUser(PasswordEncoder passwordEncoder) {
+    public User toUser() {
         return new User(
-                username, passwordEncoder.encode(password),
-                fullname, street, city, state, zip, phone);
+                this.username, this.password,
+                this.fullname, this.street, this.city, this.state, this.zip, this.phone);
     }
-@Bean
-    public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
-        return  http
-                .authorizeRequests()
-                .antMatchers("/design", "/orders").access("hasRole('serg')")
-                .antMatchers("/","/**").access("permitAll()")
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .loginProcessingUrl("/authentificate")
-                .usernameParameter("user")
-                .passwordParameter("password")
-                .and()
-                .build();
-}
+
 }

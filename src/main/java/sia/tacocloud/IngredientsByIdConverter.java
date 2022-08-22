@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 import sia.tacocloud.entity.Ingredient;
-import sia.tacocloud.data.IngredientRepository;
+import sia.tacocloud.repository.IngredientRepository;
 
 @Component
 public class IngredientsByIdConverter implements Converter<String, Ingredient> {

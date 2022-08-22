@@ -1,4 +1,4 @@
-package sia.tacocloud.entity;
+package sia.tacocloud.entity.User;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Set;
 
 @Data
 @Entity
@@ -33,7 +34,15 @@ public class User implements UserDetails {
     private  String zip;
     private  String phoneNumber;
 
-    public User(String username, String encode, String fullname, String street, String city, String state, String zip, String phone) {
+    public User(String username, String password, String fullname, String street, String city, String state, String zip, String phoneNumber) {
+        this.username = username;
+        this.password = password;
+        this.fullname = fullname;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phoneNumber = phoneNumber;
     }
 
     @Override
@@ -60,5 +69,12 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
+    public void setEmail(String s) {
+    }
+
+    public void setPasswordConfirm(String s) {
+    }
 }

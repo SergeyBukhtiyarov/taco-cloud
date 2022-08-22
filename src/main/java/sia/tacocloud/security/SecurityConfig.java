@@ -2,12 +2,33 @@ package sia.tacocloud.security;
 
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import sia.tacocloud.entity.User;
-import sia.tacocloud.data.UserRepository;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+import sia.tacocloud.entity.User.User;
+import sia.tacocloud.repository.user.UserRepository;
 
+@Configuration
 public class SecurityConfig {
+
+    @Bean
+    public SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
+        return  http
+                .authorizeRequests()
+                .antMatchers("/design", "/orders").access("hasRole('serg')")
+                .antMatchers("/","/**").access("permitAll()")
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/authentificate")
+                .usernameParameter("user")
+                .passwordParameter("password")
+                .and()
+                .build();
+    }
 
     @Bean
     public UserDetailsService userDetailsService (UserRepository userRepo) {
@@ -16,5 +37,9 @@ public class SecurityConfig {
             if (user!=null) return user;
             throw new UsernameNotFoundException( "User '" + username + "' not found");
         };
+    }
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
     }
 }

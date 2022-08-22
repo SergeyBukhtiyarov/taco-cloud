@@ -11,7 +11,7 @@ import sia.tacocloud.entity.Ingredient;
 import sia.tacocloud.entity.Ingredient.Type;
 import sia.tacocloud.entity.Taco;
 import sia.tacocloud.entity.TacoOrder;
-import sia.tacocloud.data.IngredientRepository;
+import sia.tacocloud.repository.IngredientRepository;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
