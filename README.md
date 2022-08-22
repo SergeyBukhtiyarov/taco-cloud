@@ -2,7 +2,6 @@
 
 ## *Taco-cloud is a place where You can design custom tacos from a rich palette of ingredients and order tacos online!*
                   
-#### By default, this App contains 3 Cities(Liquibase),whitch uploads when the App starts.
 
 #### *API has 3 endpoints:*
 
@@ -18,7 +17,8 @@
  
  #### 3. /registration
  ##### where You can sign up new user               
-                                                                                                          
+
+#### By default, this App contains 1 User(adminTest) with password(123) for Spring Security.
                               
 Tools/Libraries
 -	IDEA
