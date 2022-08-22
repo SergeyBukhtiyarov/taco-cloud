@@ -1,13 +1,11 @@
-package sia.tacocloud;
+package sia.tacocloud.entity;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.io.Serializable;
 import java.util.ArrayList;

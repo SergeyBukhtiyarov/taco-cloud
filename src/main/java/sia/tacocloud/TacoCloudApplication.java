@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import sia.tacocloud.data.IngredientRepository;
+import sia.tacocloud.entity.Ingredient;
 
 @SpringBootApplication(exclude = {SecurityAutoConfiguration.class})
 public class TacoCloudApplication {
@@ -37,5 +38,6 @@ public class TacoCloudApplication {
             repo.save(new Ingredient("SLSA", "Salsa", Ingredient.Type.SAUCE));
             repo.save(new Ingredient("SRCA", "Sour Cream", Ingredient.Type.SAUCE));
         };
+
     }
 }

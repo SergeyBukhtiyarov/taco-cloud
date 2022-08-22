@@ -1,4 +1,4 @@
-package sia.tacocloud;
+package sia.tacocloud.entity;
 
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
