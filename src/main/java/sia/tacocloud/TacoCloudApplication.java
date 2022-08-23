@@ -11,7 +11,7 @@ import sia.tacocloud.repository.IngredientRepository;
 import sia.tacocloud.service.RoleService;
 import sia.tacocloud.service.WebUserService;
 
-@SpringBootApplication    //(exclude = {SecurityAutoConfiguration.class})
+@SpringBootApplication   //(exclude = {SecurityAutoConfiguration.class})
 public class TacoCloudApplication {
 
 

@@ -33,6 +33,8 @@ public class User implements UserDetails {
     private  String state;
     private  String zip;
     private  String phoneNumber;
+    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
     public User(String username, String password, String fullname, String street, String city, String state, String zip, String phoneNumber) {
         this.username = username;
@@ -69,8 +71,7 @@ public class User implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-    @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private Set<Role> roles;
+
 
     public void setEmail(String s) {
     }
