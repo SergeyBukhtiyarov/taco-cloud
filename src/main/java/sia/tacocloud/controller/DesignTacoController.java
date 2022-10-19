@@ -36,27 +36,24 @@ public class DesignTacoController {
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),
-                    filterByType((List<Ingredient>) ingredients, type));
+                    filterByType(ingredients, type));
         }
     }
-@ModelAttribute(name = "tacoOrder")
-    public TacoOrder order() {
-        return new TacoOrder();
+    @ModelAttribute
+    public void order(Model model) {
+        model.addAttribute("tacoOrder", new TacoOrder());
 }
-    @ModelAttribute(name = "taco")
-    public Taco taco() {
-        return new Taco();
+    @ModelAttribute
+    public void taco(Model model) {
+        model.addAttribute("taco",new Taco());
     }
     @GetMapping
-    public String showDesignForm(Model model) {
-
-        System.out.println(model.asMap());
-
+    public String showDesignForm() {
         return "design";
     }
     @PostMapping
-    public String processTaco(@Valid @ModelAttribute("taco") Taco taco, Errors errors,
-                              @ModelAttribute("tacoOrder") TacoOrder order) {
+    public String processTaco(@Valid Taco taco, Errors errors,
+                              @ModelAttribute TacoOrder order) {
         if (errors.hasErrors()) {
             return "design";
         }

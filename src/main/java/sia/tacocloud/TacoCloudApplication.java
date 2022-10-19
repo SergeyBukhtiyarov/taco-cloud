@@ -3,6 +3,7 @@ package sia.tacocloud;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import sia.tacocloud.entity.Ingredient;
 import sia.tacocloud.entity.User.Role;
@@ -11,7 +12,7 @@ import sia.tacocloud.repository.IngredientRepository;
 import sia.tacocloud.service.RoleService;
 import sia.tacocloud.service.WebUserService;
 
-@SpringBootApplication   //(exclude = {SecurityAutoConfiguration.class})
+@SpringBootApplication   (exclude = {SecurityAutoConfiguration.class})
 public class TacoCloudApplication {
 
 
